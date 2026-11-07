@@ -32,11 +32,11 @@
 
 <script>
 async function loadStatus() {
-    const current = await fetch('data/current.json')
-        .then(r => r.json());
+    const current = await fetch('data/current.json?t=' + Date.now())
+    .then(r => r.json());
 
-    const history = await fetch('data/history.json')
-        .then(r => r.json());
+    const history = await fetch('data/history.json?t=' + Date.now())
+    .then(r => r.json());
 
     document.getElementById('current-status').textContent =
         current.status;
